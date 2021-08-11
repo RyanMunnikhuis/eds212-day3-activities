@@ -1,0 +1,11 @@
+---
+title: "EDS Day 3 activities"
+author: "Ryan Munnikhuis"
+date: "8/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

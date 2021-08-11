@@ -1,0 +1,41 @@
+---
+title: "biogeochemistry"
+author: "Ryan Munnikhuis"
+date: "8/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(here)
+library(janitor)
+```
+```{r}
+
+tookik_biochem = read_csv(here::here("data", "2011_Kling_akchem.csv"), na = ".") %>% janitor::clean_names()
+
+view(lookik_biochem)
+
+ inlet_biochem = tookik_biochem %>% filter(site == "Toolik Inlet") %>% select(p_h, doc_u_m, tdn_u_m)
+
+ inlet_biochem
+
+ inlet_biochem_vec = vector(mode = "numeric", length = ncol(inlet_biochem))
+ 
+ for (i in seq_along(inlet_biochem)) {
+  mean_vec = mean(inlet_biochem[[i]], na.rm = TRUE)
+  inlet_biochem_vec[[i]] <- mean_vec
+   }
+   
+  inlet_biochem_vec
+
+```
+
+```{r}
+apply(inlet_biochem, 2, mean, na.rm = TRUE)
+
+purrr::map_df(inlet_biochem, mean, na.rm = TRUE)
+```
+
+
